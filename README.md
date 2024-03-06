@@ -11,7 +11,7 @@ Ensure you have Docker installed on your system before proceeding.
 ### Running the Application with Docker
 
 1. Open your terminal/command prompt.
-2. Navigate to the project's directory.
+2. Navigate to the project's directory, and run the next command:
 
 ```console
 docker-compose up
