@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: gantri_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: gantri
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: api
+
+  node_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gantri_api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://gantri:password@postgres:5432/api
+      PORT: 3000
